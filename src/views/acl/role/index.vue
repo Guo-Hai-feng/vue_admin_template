@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>角色权限管理</h1>
   </div>
 </template>
 <script setup lang="ts"></script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h1>暂时</h1>
   </div>
 </template>
 <script setup lang="ts"></script>
