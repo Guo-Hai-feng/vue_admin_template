@@ -21,7 +21,6 @@ export const constantRoute = [
       hidden: false,
       icon: '',
     },
-
     redirect: '/home',
     children: [
       {
@@ -35,7 +34,6 @@ export const constantRoute = [
       },
     ],
   },
-
   {
     //404
     path: '/404',
@@ -47,18 +45,20 @@ export const constantRoute = [
       icon: 'DocumentDelete',
     },
   },
-
   {
     path: '/screen',
     component: () => import('@/views/screen/index.vue'),
-    name: 'screen',
+    name: 'Screen',
     meta: {
-      title: '数据大屏',
       hidden: false,
-      icon: 'DataLine',
+      title: '数据大屏',
+      icon: 'Platform',
     },
   },
+]
 
+//异步路由
+export const asnycRoute = [
   {
     path: '/acl',
     component: () => import('@/layout/index.vue'),
@@ -87,7 +87,6 @@ export const constantRoute = [
           icon: 'UserFilled',
         },
       },
-
       {
         path: '/acl/permission',
         component: () => import('@/views/acl/permission/index.vue'),
@@ -99,7 +98,6 @@ export const constantRoute = [
       },
     ],
   },
-
   {
     path: '/product',
     component: () => import('@/layout/index.vue'),

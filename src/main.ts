@@ -17,6 +17,8 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import router from './router'
 
 import pinia from './store'
+
+import './permission'
 //获取应用对象实例化
 const app = createApp(App)
 

@@ -3,6 +3,7 @@
   <el-icon style="margin-right: 10px" @click="changeIcon">
     <component :is="LayOutSettingStore.fold ? 'Fold' : 'Expand'"></component>
   </el-icon>
+
   <!-- 左侧面包屑 -->
   <el-breadcrumb separator-icon="ArrowRight">
     <!-- 面包动态展示路由名字与标题 -->
@@ -13,7 +14,7 @@
       :to="item.path"
     >
       <!-- 图标 -->
-      <el-icon style="margin: 0px 2px">
+      <el-icon>
         <component :is="item.meta.icon"></component>
       </el-icon>
       <!-- 面包屑展示匹配路由的标题 -->
@@ -31,6 +32,7 @@ let LayOutSettingStore = useLayOutSettingStore()
 //获取路由对象
 let $route = useRoute()
 //点击图标的方法
+
 const changeIcon = () => {
   //图标进行切换
   LayOutSettingStore.fold = !LayOutSettingStore.fold

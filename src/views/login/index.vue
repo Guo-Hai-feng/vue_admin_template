@@ -79,7 +79,7 @@ let $route = useRoute()
 let loading = ref(false)
 
 //收集账号与密码的数据
-let loginForm = reactive({ username: 'admin', password: 'atguigu123' })
+let loginForm = reactive({ username: 'admin', password: '111111' })
 
 //登录按钮回调
 
@@ -123,7 +123,7 @@ const login = async () => {
   }
 }
 //自定义校验规则函数
-const validatorUserName = (rule: any, value: any, callback: any) => {
+const validatorUserName = (_rule: any, value: any, callback: any) => {
   //rule:即为校验规则对象
   //value:即为表单元素文本内容
   //函数:如果符合条件callBack放行通过即为
@@ -135,7 +135,7 @@ const validatorUserName = (rule: any, value: any, callback: any) => {
   }
 }
 
-const validatorPassword = (rule: any, value: any, callback: any) => {
+const validatorPassword = (_rule: any, value: any, callback: any) => {
   if (value.length >= 6) {
     callback()
   } else {

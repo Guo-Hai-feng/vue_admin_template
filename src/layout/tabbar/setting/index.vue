@@ -40,7 +40,6 @@
       <el-button size="small" icon="Setting" circle></el-button>
     </template>
   </el-popover>
-
   <img
     :src="userStore.avatar"
     style="width: 24px; height: 24px; margin: 0px 10px; border-radius: 50%"
@@ -76,12 +75,10 @@ let $router = useRouter()
 let $route = useRoute()
 //收集开关的数据
 let dark = ref<boolean>(false)
-
 //刷新按钮点击回调
 const updateRefsh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh
 }
-
 //全屏按钮点击的回调
 const fullScreen = () => {
   //DOM对象的一个属性:可以用来判断当前是不是全屏模式[全屏:true,不是全屏:false]
