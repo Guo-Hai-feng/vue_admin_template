@@ -1,7 +1,7 @@
 //路由鉴权:鉴权,项目当中路由能不能被的权限的设置(某一个路由什么条件下可以访问、什么条件下不可以访问)
 import router from '@/router'
 import setting from './setting'
-//@ts-expect-error不知道具体
+//@ts-expect-error
 import nprogress from 'nprogress'
 //引入进度条样式
 import 'nprogress/nprogress.css'
@@ -10,10 +10,9 @@ nprogress.configure({ showSpinner: false })
 import useUserStore from './store/modules/user'
 import pinia from './store'
 const userStore = useUserStore(pinia)
-
 //全局守卫:项目当中任意路由切换都会触发的钩子
 //全局前置守卫
-router.beforeEach(async (to: any, next: any) => {
+router.beforeEach(async (to: any, from: any, next: any) => {
   document.title = `${setting.title} - ${to.meta.title}`
   //to:你将要访问那个路由
   //from:你从来个路由而来
@@ -61,7 +60,7 @@ router.beforeEach(async (to: any, next: any) => {
   }
 })
 //全局后置守卫
-router.afterEach(() => {
+router.afterEach((to: any, from: any) => {
   nprogress.done()
 })
 
