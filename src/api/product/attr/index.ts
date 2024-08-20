@@ -22,11 +22,10 @@ export const reqC1 = () => request.get<any, CategoryResponseData>(API.C1_URL)
 //获取二级分类的接口方法
 export const reqC2 = (category1Id: number | string) =>
   request.get<any, CategoryResponseData>(API.C2_URL + category1Id)
-//获取三级分类的接口方法
+//获取二级分类的接口方法
 export const reqC3 = (category2Id: number | string) =>
   request.get<any, CategoryResponseData>(API.C3_URL + category2Id)
 //获取对应分类下已有的属性与属性值接口
-
 export const reqAttr = (
   category1Id: string | number,
   category2Id: string | number,

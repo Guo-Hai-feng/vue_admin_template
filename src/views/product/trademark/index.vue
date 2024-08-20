@@ -13,8 +13,8 @@
       </el-button>
       <!-- 表格组件：用于展示已有得平台数据 -->
       <!-- table:---border:可以设置表格纵向是否有边框
-              table-column:---label:某一个列表 ---width:设置这列宽度 ---align:设置这一列对齐方式    
-          -->
+                table-column:---label:某一个列表 ---width:设置这列宽度 ---align:设置这一列对齐方式    
+            -->
       <el-table style="margin: 10px 0px" border :data="trademarkArr">
         <el-table-column
           label="序号"
@@ -55,13 +55,13 @@
         </el-table-column>
       </el-table>
       <!-- 分页器组件
-              pagination
-                 v-model:current-page:设置分页器当前页码
-                 v-model:page-size:设置每一个展示数据条数
-                 page-sizes:用于设置下拉菜单数据
-                 background:设置分页器按钮的背景颜色
-                 layout:可以设置分页器六个子组件布局调整
-          -->
+                pagination
+                   v-model:current-page:设置分页器当前页码
+                   v-model:page-size:设置每一个展示数据条数
+                   page-sizes:用于设置下拉菜单数据
+                   background:设置分页器按钮的背景颜色
+                   layout:可以设置分页器六个子组件布局调整
+            -->
       <el-pagination
         @size-change="sizeChange"
         @current-change="getHasTrademark"
@@ -76,9 +76,9 @@
     </el-card>
     <!-- 对话框组件:在添加品牌与修改已有品牌的业务时候使用结构 -->
     <!-- 
-          v-model:属性用户控制对话框的显示与隐藏的 true显示 false隐藏
-           title:设置对话框左上角标题
-      -->
+            v-model:属性用户控制对话框的显示与隐藏的 true显示 false隐藏
+             title:设置对话框左上角标题
+        -->
     <el-dialog
       v-model="dialogFormVisible"
       :title="trademarkParams.id ? '修改品牌' : '添加品牌'"
@@ -171,12 +171,9 @@ const getHasTrademark = async (pager = 1) => {
   if (result.code == 200) {
     //存储已有品牌总个数
     total.value = result.data.total
-
-    //获取到了已有品牌数据
     trademarkArr.value = result.data.records
   }
 }
-
 //组件挂载完毕钩子---发一次请求,获取第一页、一页三个已有品牌数据
 onMounted(() => {
   getHasTrademark()

@@ -1,15 +1,9 @@
 <template>
   <div class="login_container">
     <el-row>
-      <!-- element-plus一行分为24个格子 -->
-      <!-- xs当前设备的屏幕宽度小于等于768时，这个部分不占 -->
       <el-col :span="12" :xs="0"></el-col>
-
-      <!--  xs当前设备的屏幕宽度小于等于768时，这个部分占全部 -->
       <el-col :span="12" :xs="24">
-        <!-- 登录的表单  Element UI 中的表单容器组件-->
-        <!-- ref=''其他DOM元素或子组件也可以使用这个表单,model用于在表单和 Vue 组件的数据模型之间建立双向绑定。 -->
-        <!-- rules指定表单验证的规则 -->
+        <!-- 登录的表单 -->
         <el-form
           ref="loginForms"
           :model="loginForm"
@@ -17,9 +11,7 @@
           class="login_form"
         >
           <h1>Hello</h1>
-          <h2>郭海枫暑假实践项目</h2>
-
-          <!-- prop 属性用于指定当前表单项对应 model 对象中的字段名称。 -->
+          <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
             <el-input
               v-model="loginForm.username"
@@ -27,7 +19,6 @@
             ></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <!-- show-password是否显示切换密码图标 -->
             <el-input
               v-model="loginForm.password"
               :prefix-icon="Lock"
@@ -36,7 +27,6 @@
             ></el-input>
           </el-form-item>
           <el-form-item>
-            <!-- 如果loading为真就开始转,显示按钮加载的效果 -->
             <el-button
               :loading="loading"
               class="login_btn"
@@ -54,16 +44,12 @@
 </template>
 
 <script lang="ts" setup>
-//使用element-plus的图标
 import { Lock, User } from '@element-plus/icons-vue'
-//收集表单的数据以便登陆后发送请求
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
-
 //引入获取当前时间的函数
 import { getTime } from '@/utils/time'
-
 //引入用户相关的小仓库
 import useUserStore from '@/store/modules/user'
 
@@ -74,22 +60,14 @@ let loginForms = ref()
 let $router = useRouter()
 //路由对象
 let $route = useRoute()
-
 //定义变量控制按钮加载效果
 let loading = ref(false)
-
 //收集账号与密码的数据
-let loginForm = reactive({ username: 'admin', password: '111111' })
-
+let loginForm = reactive({ username: 'admin', password: 'atguigu123' })
 //登录按钮回调
-
-//通知仓库发送请求
-//如果请求成功
-//如果请求失败
 const login = async () => {
   //保证全部表单相校验通过再发请求
   await loginForms.value.validate()
-
   //加载效果:开始加载
   loading.value = true
   //点击登录按钮以后干什么?
@@ -109,7 +87,6 @@ const login = async () => {
       message: '欢迎回来',
       title: `HI,${getTime()}好`,
     })
-
     //登录成功加载效果也消失
     loading.value = false
   } catch (error) {
@@ -123,7 +100,7 @@ const login = async () => {
   }
 }
 //自定义校验规则函数
-const validatorUserName = (_rule: any, value: any, callback: any) => {
+const validatorUserName = (rule: any, value: any, callback: any) => {
   //rule:即为校验规则对象
   //value:即为表单元素文本内容
   //函数:如果符合条件callBack放行通过即为
@@ -135,7 +112,7 @@ const validatorUserName = (_rule: any, value: any, callback: any) => {
   }
 }
 
-const validatorPassword = (_rule: any, value: any, callback: any) => {
+const validatorPassword = (rule: any, value: any, callback: any) => {
   if (value.length >= 6) {
     callback()
   } else {
@@ -161,14 +138,12 @@ const rules = {
   ],
 }
 </script>
-
 <style lang="scss" scoped>
 .login_container {
   width: 100%;
   height: 100vh;
   background: url('@/assets/images/background.jpg') no-repeat;
-
-  // background-size: cover;
+  background-size: cover;
 
   .login_form {
     position: relative;

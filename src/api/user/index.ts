@@ -3,7 +3,7 @@ import request from '@/utils/request'
 import type {
   loginFormData,
   loginResponseData,
-  userInfoResponseData,
+  userInfoReponseData,
 } from './type'
 //项目用户相关的请求地址
 enum API {
@@ -17,6 +17,6 @@ export const reqLogin = (data: loginFormData) =>
   request.post<any, loginResponseData>(API.LOGIN_URL, data)
 //获取用户信息
 export const reqUserInfo = () =>
-  request.get<any, userInfoResponseData>(API.USERINFO_URL)
+  request.get<any, userInfoReponseData>(API.USERINFO_URL)
 //退出登录
 export const reqLogout = () => request.post<any, any>(API.LOGOUT_URL)

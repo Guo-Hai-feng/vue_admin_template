@@ -4,7 +4,7 @@
       <img :src="userStore.avatar" alt="" class="avatar" />
       <div class="bottom">
         <h3 class="title">{{ getTime() }}好呀{{ userStore.username }}</h3>
-        <p class="subtitle">郭海枫暑期项目实践</p>
+        <p class="subtitle">硅谷甄选运营平台</p>
       </div>
     </div>
   </el-card>
@@ -16,14 +16,9 @@
 <script setup lang="ts">
 import { getTime } from '@/utils/time'
 //引入用户相关的仓库,获取当前用户的头像、昵称
-import { onMounted } from 'vue'
 import useUserStore from '@/store/modules/user'
 //获取存储用户信息的仓库对象
 let userStore = useUserStore()
-
-onMounted(() => {
-  userStore.userInfo()
-})
 </script>
 
 <style scoped lang="scss">
